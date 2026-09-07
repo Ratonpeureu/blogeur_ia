@@ -1,18 +1,24 @@
-name: PHP Composer
+name: PHP Composer (Laravel)
 
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - 'blogeur_ia_laravel/**'
   pull_request:
     branches: [ "main" ]
+    paths:
+      - 'blogeur_ia_laravel/**'
 
 permissions:
   contents: read
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: blogeur_ia_laravel  
 
     steps:
     - uses: actions/checkout@v4
@@ -24,16 +30,10 @@ jobs:
       id: composer-cache
       uses: actions/cache@v3
       with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        path: blogeur_ia_laravel/vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('blogeur_ia_laravel/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-php-
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
-
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
-
-    # - name: Run test suite
-    #   run: composer run-script test
