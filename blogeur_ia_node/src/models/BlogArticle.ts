@@ -25,10 +25,19 @@ export interface BlogArticleAttributes {
   createdBy: string;
 }
 
-type BlogArticleCreationAttributes = Optional
+type BlogArticleCreationAttributes = Optional<
   BlogArticleAttributes,
-  "id" | "tags" | "imageCouvertureUrl" | "statut" | "source" | "metaTitle" |
-  "metaDescription" | "liensExternes" | "imagesMeta" | "motsClesSeo" | "datePublication"
+  | "id"
+  | "tags"
+  | "imageCouvertureUrl"
+  | "statut"
+  | "source"
+  | "metaTitle"
+  | "metaDescription"
+  | "liensExternes"
+  | "imagesMeta"
+  | "motsClesSeo"
+  | "datePublication"
 >;
 
 export class BlogArticle

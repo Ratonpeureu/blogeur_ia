@@ -1,8 +1,9 @@
-# blogueur_ia
+# blogueur_ia_python
 
 Module de blog éditorial autonome piloté par IA : rédaction, illustration (images/
 vidéos/cartes via Serper), backlinks SEO réels, garde-fou anti-auto-promotion,
 publication — packagé pour être cloné et branché dans n'importe quel projet FastAPI + Celery.
+Version Python
 
 ## Installation
 
