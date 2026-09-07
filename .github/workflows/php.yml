@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: blogeur_ia_laravel   # toutes les commandes s'exécutent ici
+        working-directory: blogeur_ia_laravel   
 
     steps:
     - uses: actions/checkout@v4
@@ -26,11 +26,12 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.2'
+        php-version: '8.2'               
         tools: composer:v2
-        extensions: mbstring, intl, json, xml, curl, pdo, pdo_mysql  # ajustez selon vos besoins
+        extensions: mbstring, intl, json, xml, curl, pdo, pdo_mysql
 
-    - name: Validate composer.json and composer.lock
+
+    - name: Validate composer.json
       run: composer validate --strict
 
     - name: Cache Composer packages
