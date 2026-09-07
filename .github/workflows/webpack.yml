@@ -9,7 +9,7 @@ on:
     branches: [ "main" ]
     paths:
       - 'blogeur_ia_node/**'
-  workflow_dispatch:   # pour lancer manuellement
+  workflow_dispatch:
 
 jobs:
   build:
@@ -21,7 +21,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: blogeur_ia_node   
+        working-directory: blogeur_ia_node
 
     steps:
       - uses: actions/checkout@v4
@@ -30,8 +30,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-          cache-dependency-path: blogeur_ia_node/package-lock.json   
 
       - name: Install dependencies
         run: npm install
