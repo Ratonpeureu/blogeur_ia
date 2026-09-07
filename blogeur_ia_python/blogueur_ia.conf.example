@@ -1,0 +1,55 @@
+# Copier en blogueur_ia.conf et adapter — c'est la SEULE source de vérité
+# pour le comportement éditorial, la marque, les catégories et le stockage.
+# Les secrets (clés API, URL DB) restent dans .env.
+
+[brand]
+name = Mon Entreprise
+base_url = https://exemple.com
+author_default = Équipe Éditoriale
+persona_name = Jean Dupont
+persona_bio = professionnel du secteur, écrivant à la première personne
+
+[style]
+secteur = votre secteur d'activité, ici décrivez le domaine couvert par le blog
+min_words = 900
+max_words = 1600
+temperature_redaction = 0.9
+temperature_reecriture = 0.7
+# Séparées par des virgules — expressions à éviter dans la prose générée
+interdits = en somme,il est essentiel de noter,de plus,par ailleurs,en conclusion,à l'ère du digital
+
+[promo_guard]
+# Si enabled = true, le contenu générique (catégorie != categorie_produit_id et
+# sujet ne citant pas la marque) est vérifié après génération et régénéré si la
+# marque apparaît quand même.
+enabled = true
+brand_trigger_keywords = mon entreprise,notre logiciel,notre plateforme,notre solution
+mentions_interdites = chez mon entreprise,notre logiciel,notre plateforme,notre solution,intégré à notre,nous avons développé
+
+[categories]
+# format id:Label, séparés par des virgules
+ids_labels = guide:Guide pratique,actualite:Actualité,analyse-marche:Analyse de marché,reglementation:Réglementation,temoignage:Témoignage,produit:Produit & nouveautés
+categorie_produit_id = produit
+categorie_defaut = guide
+
+[mots_cles_seo]
+# pool de mots-clés injectés naturellement dans les articles, séparés par des virgules
+pool = mot-cle-1,mot-cle-2,mot-cle-3
+
+[fiche_technique]
+# Fichier YAML optionnel = seule source de vérité pour parler de VOTRE produit.
+# Chargé uniquement si la catégorie = categorie_produit_id ou si le sujet cite la marque.
+path = fiche_technique_produit.yaml
+
+[storage]
+dir = ./uploads/blog
+base_url = https://exemple.com/uploads/blog
+max_size_mb = 6
+
+[serper]
+gl = sn
+hl = fr
+
+[llm]
+provider = anthropic
+model = claude-sonnet-4-5
