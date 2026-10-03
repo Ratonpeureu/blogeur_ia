@@ -1,0 +1,53 @@
+/* ecole.css — CSS du module École.
+   AUCUN @import ici : police + Tailwind sont chargés par le index.css global.
+   Toutes les règles sont scopées sous .ecole-scope. */
+
+:where(.ecole-scope) {
+  color-scheme: light;
+  background-color: #eaeef3;
+  color: #1b2733;
+  -webkit-font-smoothing: antialiased;
+
+  /* Variables École (optionnel, voir tailwind.config) */
+  --win-canvas: #eaeef3;
+  --win-text: #1b2733;
+  --win-accent: #2b5797;
+}
+
+/* Scrollbars façon Windows : uniquement dans le module École */
+:where(.ecole-scope),
+:where(.ecole-scope) * {
+  scrollbar-width: thin;
+  scrollbar-color: #b9c4d2 transparent;
+}
+
+:where(.ecole-scope) ::-webkit-scrollbar,
+:where(.ecole-scope)::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+:where(.ecole-scope) ::-webkit-scrollbar-track,
+:where(.ecole-scope)::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+:where(.ecole-scope) ::-webkit-scrollbar-thumb,
+:where(.ecole-scope)::-webkit-scrollbar-thumb {
+  background: #c3ccd9;
+  border: 3px solid transparent;
+  background-clip: content-box;
+  border-radius: 999px;
+}
+
+:where(.ecole-scope) ::-webkit-scrollbar-thumb:hover,
+:where(.ecole-scope)::-webkit-scrollbar-thumb:hover {
+  background: #97a5b8;
+  background-clip: content-box;
+}
+
+:where(.ecole-scope) :focus-visible {
+  outline: 2px solid #2b5797;
+  outline-offset: 1px;
+}
+
